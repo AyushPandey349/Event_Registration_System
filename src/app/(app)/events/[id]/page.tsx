@@ -33,7 +33,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useState } from 'react';
-import { toast } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 export default function EventDetailPage({ params }: { params: { id: string } }) {
   // For demonstration, we'll use a hardcoded event.
@@ -116,6 +116,7 @@ function BookingDialog({ event }: { event: NonNullable<typeof events[0]> }) {
   const [step, setStep] = useState(1);
   const [open, setOpen] = useState(false);
   const [tickets, setTickets] = useState(1);
+  const { toast } = useToast();
   const totalPrice = (event.price * tickets).toLocaleString('en-IN');
 
   const handleBooking = () => {

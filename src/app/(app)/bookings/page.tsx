@@ -27,9 +27,10 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
   } from '@/components/ui/dropdown-menu';
-import { toast } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 export default function BookingsPage() {
+    const { toast } = useToast();
 
     const handleCancelBooking = () => {
         toast({
