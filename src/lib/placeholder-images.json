@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "event-1",
+      "description": "A vibrant music festival with a large crowd and stage lights.",
+      "imageUrl": "https://images.unsplash.com/photo-1619229725920-ac8b63b0631a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtdXNpYyUyMGZlc3RpdmFsfGVufDB8fHx8MTc2NDA2MjUyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "music festival"
+    },
+    {
+      "id": "event-2",
+      "description": "A professional tech conference with a speaker on stage.",
+      "imageUrl": "https://images.unsplash.com/photo-1582192730841-2a682d7375f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NjQwOTgzMDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech conference"
+    },
+    {
+      "id": "event-3",
+      "description": "A community food festival with various stalls and people enjoying meals.",
+      "imageUrl": "https://images.unsplash.com/photo-1505426101273-b50e6f3ff9a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmb29kJTIwZmVzdGl2YWx8ZW58MHx8fHwxNzY0MTM3MjY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "food festival"
+    },
+    {
+      "id": "event-4",
+      "description": "An art exhibition with paintings on the wall and visitors.",
+      "imageUrl": "https://images.unsplash.com/photo-1503293050619-6048ffad0dc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhcnQlMjBleGhpYml0aW9ufGVufDB8fHx8MTc2NDA2NTMyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "art exhibition"
+    },
+    {
+      "id": "event-5",
+      "description": "A group of people hiking on a mountain trail for a sports event.",
+      "imageUrl": "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwc3BvcnR8ZW58MHx8fHwxNzY0MTcwNTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "outdoor sport"
+    },
+    {
+      "id": "event-6",
+      "description": "A person doing yoga in a serene park setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1488345979593-09db0f85545f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3ZWxsbmVzcyUyMHJldHJlYXR8ZW58MHx8fHwxNzY0MTcwNTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wellness retreat"
+    },
+    {
+      "id": "hero-1",
+      "description": "A wide shot of a concert with colorful lights and a cheering audience.",
+      "imageUrl": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb25jZXJ0JTIwY3Jvd2R8ZW58MHx8fHwxNzY0MTQxMDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "concert crowd"
+    },
+    {
+      "id": "hero-2",
+      "description": "A close-up of a speaker presenting at a business seminar.",
+      "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHNlbWluYXJ8ZW58MHx8fHwxNzY0MTcwNTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business seminar"
+    }
+  ]
 }
