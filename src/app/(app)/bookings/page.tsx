@@ -56,9 +56,9 @@ export default function BookingsPage() {
                 <TableRow key={booking.id}>
                   <TableCell>
                     <div className="font-medium">{booking.eventTitle}</div>
-                    <div className="text-sm text-muted-foreground md:hidden">{new Date(booking.eventDate).toLocaleDateString()}</div>
+                    <div className="text-sm text-muted-foreground md:hidden">{new Date(booking.eventDate).toLocaleDateString('en-IN')}</div>
                   </TableCell>
-                  <TableCell className="hidden sm:table-cell">{new Date(booking.eventDate).toLocaleDateString()}</TableCell>
+                  <TableCell className="hidden sm:table-cell">{new Date(booking.eventDate).toLocaleDateString('en-IN')}</TableCell>
                   <TableCell className="hidden md:table-cell">{booking.location}</TableCell>
                   <TableCell className="hidden sm:table-cell">
                     <Badge

@@ -65,7 +65,7 @@ export default function AdminPage() {
                       </TableCell>
                       <TableCell className="hidden sm:table-cell">{user.email}</TableCell>
                       <TableCell className="hidden md:table-cell"><Badge variant={user.role === 'Admin' ? 'destructive' : 'secondary'}>{user.role}</Badge></TableCell>
-                      <TableCell className="hidden md:table-cell">{new Date(user.joinedDate).toLocaleDateString()}</TableCell>
+                      <TableCell className="hidden md:table-cell">{new Date(user.joinedDate).toLocaleDateString('en-IN')}</TableCell>
                       <TableCell className="text-right"><AdminActionMenu /></TableCell>
                     </TableRow>
                   ))}
@@ -96,8 +96,8 @@ export default function AdminPage() {
                     <TableRow key={event.id}>
                       <TableCell>{event.title}</TableCell>
                       <TableCell className="hidden sm:table-cell"><Badge variant="outline">{event.category}</Badge></TableCell>
-                      <TableCell className="hidden md:table-cell">{new Date(event.date).toLocaleDateString()}</TableCell>
-                      <TableCell className="hidden md:table-cell">${event.price}</TableCell>
+                      <TableCell className="hidden md:table-cell">{new Date(event.date).toLocaleDateString('en-IN')}</TableCell>
+                      <TableCell className="hidden md:table-cell">₹{event.price.toLocaleString('en-IN')}</TableCell>
                       <TableCell className="text-right"><AdminActionMenu /></TableCell>
                     </TableRow>
                   ))}
@@ -127,7 +127,7 @@ export default function AdminPage() {
                     <TableRow key={booking.id}>
                       <TableCell>{booking.eventTitle}</TableCell>
                       <TableCell className="hidden sm:table-cell"><Badge variant={booking.status === 'Confirmed' ? 'default' : 'secondary'}>{booking.status}</Badge></TableCell>
-                      <TableCell className="hidden md:table-cell">{new Date(booking.bookingDate).toLocaleDateString()}</TableCell>
+                      <TableCell className="hidden md:table-cell">{new Date(booking.bookingDate).toLocaleDateString('en-IN')}</TableCell>
                       <TableCell className="text-right"><AdminActionMenu /></TableCell>
                     </TableRow>
                   ))}

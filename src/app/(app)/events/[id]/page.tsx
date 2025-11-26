@@ -77,7 +77,7 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                 <Calendar className="mt-1 h-5 w-5 text-primary" />
                 <div>
                   <p className="font-medium">Date and Time</p>
-                  <p className="text-muted-foreground">{new Date(event.date).toDateString()} at {event.time}</p>
+                  <p className="text-muted-foreground">{new Date(event.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })} at {event.time}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -101,10 +101,10 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
         <div className="md:col-span-1">
           <div className="sticky top-20 rounded-lg border bg-card p-6 shadow-sm">
             <p className="mb-4 text-center text-3xl font-bold text-primary">
-              ${event.price}
+            ₹{event.price.toLocaleString('en-IN')}
               <span className="text-base font-normal text-muted-foreground"> / ticket</span>
             </p>
-            <BookingDialog />
+            <BookingDialog event={event}/>
           </div>
         </div>
       </div>
@@ -112,12 +112,15 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
   );
 }
 
-function BookingDialog() {
+function BookingDialog({ event }: { event: NonNullable<typeof events[0]> }) {
   const [step, setStep] = useState(1);
   const [open, setOpen] = useState(false);
+  const [tickets, setTickets] = useState(1);
+  const totalPrice = (event.price * tickets).toLocaleString('en-IN');
 
   const resetAndClose = () => {
     setStep(1);
+    setTickets(1);
     setOpen(false);
   }
 
@@ -139,7 +142,7 @@ function BookingDialog() {
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="tickets" className="text-right">Tickets</Label>
-                <Select defaultValue='1'>
+                <Select defaultValue='1' onValueChange={(value) => setTickets(parseInt(value))}>
                     <SelectTrigger className="col-span-3">
                         <SelectValue />
                     </SelectTrigger>
@@ -151,7 +154,7 @@ function BookingDialog() {
                     </SelectContent>
                 </Select>
               </div>
-              <p className="text-right text-lg font-bold">Total: $150.00</p>
+              <p className="text-right text-lg font-bold">Total: ₹{totalPrice}</p>
             </div>
             <DialogFooter>
               <Button type="button" onClick={() => setStep(2)}>
@@ -185,7 +188,7 @@ function BookingDialog() {
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setStep(1)}>Back</Button>
-              <Button type="button" onClick={() => setStep(3)}>Pay $150.00</Button>
+              <Button type="button" onClick={() => setStep(3)}>Pay ₹{totalPrice}</Button>
             </DialogFooter>
           </>
         )}
@@ -197,7 +200,7 @@ function BookingDialog() {
                     </div>
                     <DialogTitle className="text-center">Booking Confirmed!</DialogTitle>
                     <DialogDescription className="text-center">
-                        Your tickets for Starlight Music Festival are confirmed. A confirmation email has been sent to you.
+                        Your tickets for {event.title} are confirmed. A confirmation email has been sent to you.
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter>
