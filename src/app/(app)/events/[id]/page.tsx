@@ -32,13 +32,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { useState } from 'react';
+import { useState, use } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
-export default function EventDetailPage({ params }: { params: { id: string } }) {
+export default function EventDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   // For demonstration, we'll use a hardcoded event.
   // In a real app, you would fetch this based on params.id
-  const event = events.find((e) => e.id === params.id || e.id === '1');
+  const event = events.find((e) => e.id === id || e.id === '1');
 
   if (!event) {
     notFound();
