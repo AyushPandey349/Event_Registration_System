@@ -1,11 +1,11 @@
+'use client';
+
 import { events } from '@/lib/placeholder-data';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   Calendar,
-  Clock,
   MapPin,
-  Tag,
   User,
   Ticket,
   CreditCard,
@@ -14,7 +14,6 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { PageHeader } from '@/components/page-header';
 import {
   Dialog,
   DialogContent,
@@ -34,11 +33,12 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useState } from 'react';
+import { toast } from '@/hooks/use-toast';
 
 export default function EventDetailPage({ params }: { params: { id: string } }) {
   // For demonstration, we'll use a hardcoded event.
   // In a real app, you would fetch this based on params.id
-  const event = events.find((e) => e.id === '1');
+  const event = events.find((e) => e.id === params.id || e.id === '1');
 
   if (!event) {
     notFound();
@@ -118,6 +118,15 @@ function BookingDialog({ event }: { event: NonNullable<typeof events[0]> }) {
   const [tickets, setTickets] = useState(1);
   const totalPrice = (event.price * tickets).toLocaleString('en-IN');
 
+  const handleBooking = () => {
+    // Simulate booking
+    setStep(3);
+    toast({
+        title: "Booking Confirmed!",
+        description: `Your tickets for ${event.title} are confirmed.`,
+    })
+  }
+
   const resetAndClose = () => {
     setStep(1);
     setTickets(1);
@@ -173,22 +182,22 @@ function BookingDialog({ event }: { event: NonNullable<typeof events[0]> }) {
             <div className="grid gap-4 py-4">
               <div className="space-y-2">
                 <Label htmlFor="card-number">Card Number</Label>
-                <Input id="card-number" placeholder="**** **** **** 1234" />
+                <Input id="card-number" placeholder="**** **** **** 1234" defaultValue="4242 4242 4242 4242"/>
               </div>
               <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-2 col-span-2">
                     <Label htmlFor="expiry">Expiry</Label>
-                    <Input id="expiry" placeholder="MM/YY" />
+                    <Input id="expiry" placeholder="MM/YY" defaultValue="12/28"/>
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="cvc">CVC</Label>
-                    <Input id="cvc" placeholder="123" />
+                    <Input id="cvc" placeholder="123" defaultValue="123"/>
                 </div>
               </div>
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setStep(1)}>Back</Button>
-              <Button type="button" onClick={() => setStep(3)}>Pay ₹{totalPrice}</Button>
+              <Button type="button" onClick={handleBooking}>Pay ₹{totalPrice}</Button>
             </DialogFooter>
           </>
         )}

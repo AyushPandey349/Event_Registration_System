@@ -153,7 +153,9 @@ function AdminActionMenu() {
             <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem>Edit</DropdownMenuItem>
-            <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+            <DropdownMenuItem>
+                <span className="text-destructive">Delete</span>
+            </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )

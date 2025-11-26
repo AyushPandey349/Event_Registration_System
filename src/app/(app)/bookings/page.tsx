@@ -1,3 +1,4 @@
+'use client';
 import { PageHeader } from '@/components/page-header';
 import { bookings } from '@/lib/placeholder-data';
 import {
@@ -17,7 +18,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { MoreHorizontal } from 'lucide-react';
+import { MoreHorizontal, Ticket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -26,8 +27,17 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
   } from '@/components/ui/dropdown-menu';
+import { toast } from '@/hooks/use-toast';
 
 export default function BookingsPage() {
+
+    const handleCancelBooking = () => {
+        toast({
+            title: "Booking Cancelled",
+            description: "Your booking has been successfully cancelled.",
+            variant: "destructive"
+        })
+    }
   return (
     <>
       <PageHeader
@@ -84,9 +94,13 @@ export default function BookingsPage() {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem>View Ticket</DropdownMenuItem>
-                        <DropdownMenuItem>Contact Organizer</DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">Cancel Booking</DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <Ticket className="mr-2 h-4 w-4" />
+                            View Ticket
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={handleCancelBooking}>
+                            <span className="text-destructive">Cancel Booking</span>
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>
